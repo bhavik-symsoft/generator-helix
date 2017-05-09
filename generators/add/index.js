@@ -79,8 +79,8 @@ module.exports = class extends yeoman {
 
 		this.prompt(questions).then((answers) => {
 			this.layer = answers.layer;
-             
-  
+
+
 			if (this.settings.VendorPrefix === '' || this.settings.VendorPrefix === undefined ) {
 				this.settings.LayerPrefixedProjectName = `${this.layer}.${this.settings.ProjectName}`;
 			} else {
@@ -99,7 +99,7 @@ module.exports = class extends yeoman {
 			message: 'Enter optional Module Group '
 		}];
 
-		this.prompt(questions).then((answers) => { 
+		this.prompt(questions).then((answers) => {
 			this.modulegroup = answers.modulegroup ? answers.modulegroup : '';
 			done();
 		});
@@ -180,7 +180,7 @@ module.exports = class extends yeoman {
 
 	_copySolutionSpecificItems(){
 		this.fs.copyTpl(
-			this.destinationPath('helix-template/**/*'), 
+			this.destinationPath('helix-template/**/*'),
 			this.destinationPath(this.settings.ProjectPath),
 			this.templatedata);
 	}
@@ -210,9 +210,17 @@ module.exports = class extends yeoman {
 		this.fs.copyTpl(this.templatePath('_serialization.config'), this.destinationPath(serializationDestinationFile), this.templatedata);
 	}
 
+	_copyDesignItems() {
+		var designFolderName = "design";
+		mkdir.sync(path.join(this.settings.sourceFolder, this.layer, this.settings.ProjectName, designFolderName, "html" ));
+		mkdir.sync(path.join(this.settings.sourceFolder, this.layer, this.settings.ProjectName, designFolderName, "js" ));
+		mkdir.sync(path.join(this.settings.sourceFolder, this.layer, this.settings.ProjectName, designFolderName, "less" ));
+	}
+
 	writing() {
 		this.settings.ProjectPath = path.join(this.settings.sourceFolder, this.layer, this.modulegroup, this.settings.ProjectName, 'code' );
 		this._copyProjectItems();
+		this._copyDesignItems();
 
 		if(this.settings.serialization) {
 			this._copySerializationItems();

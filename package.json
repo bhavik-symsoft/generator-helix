@@ -1,30 +1,27 @@
 {
-  "name": "generator-helix",
+  "name": "generator-helix-ss",
   "version": "1.3.1",
-  "description": "yeoman generator for Helix style Sitecore projects",
+  "description": "yeoman generator for Helix style Sitecore projects for SS",
   "main": "index.js",
   "scripts": {
     "test": "mocha && eslint ."
   },
   "keywords": [
-    "yeoman-generator",
-    "sitecore",
-    "helix",
-    "generator",
-    "yeoman"
+  	"yeoman-generator"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/PentiaLabs/generator-helix"
+    "url": "https://github.com/bhavik-symsoft/generator-helix"
   },
   "maintainers": [
-    "Pentia <dev@pentia.dk> (http://www.pentia.dk)"
+    "Pentia <dev@pentia.dk> (http://www.pentia.dk)",
+    "Bhavik Patel <bhavik@symsoftsolutions.com>"
   ],
   "bugs": {
-    "url": "https://github.com/PentiaLabs/generator-helix"
+    "url": "https://github.com/bhavik-symsoft/generator-helix"
   },
-  "homepage": "https://github.com/PentiaLabs/generator-helix#readme",
-  "author": "Emil Klein <eok@pentia.dk>",
+  "homepage": "https://github.com/bhavik-symsoft/generator-helix#readme",
+  "author": "Bhavik Patel <bhavik@symsoftsolutions.com>",
   "license": "MIT",
   "dependencies": {
     "chalk": "^1.1.3",
