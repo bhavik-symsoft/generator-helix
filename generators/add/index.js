@@ -215,6 +215,9 @@ module.exports = class extends yeoman {
 		mkdir.sync(path.join(this.settings.sourceFolder, this.layer, this.settings.ProjectName, designFolderName, "html" ));
 		mkdir.sync(path.join(this.settings.sourceFolder, this.layer, this.settings.ProjectName, designFolderName, "js" ));
 		mkdir.sync(path.join(this.settings.sourceFolder, this.layer, this.settings.ProjectName, designFolderName, "less" ));
+
+		const designReadmeFile = path.join(this.settings.sourceFolder, this.layer, this.settings.ProjectName, designFolderName, 'readme.md');
+		this.fs.copyTpl(this.templatePath('_designreadme.md'), this.destinationPath(designReadmeFile), this.templatedata);
 	}
 
 	writing() {
